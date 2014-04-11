@@ -16,9 +16,9 @@ Dice.prototype.rollDice = function() {
 };
 
 Dice.prototype.printDice = function() {
-	dice.forEach(function(entry){
-		console.log(entry.getValue());
-	});
+	for (i=0; i< dice.length; i++) {
+		console.log("Dice[" + i + "] = " + dice[i].getValue());
+	}
 };
 
 //export the dice class
