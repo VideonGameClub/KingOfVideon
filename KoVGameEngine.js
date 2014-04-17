@@ -7,20 +7,17 @@ var players = [];
 function KoVGameEngine() { 
 }
 
-KoVGameEngine.prototype.setupGame = function(InputPlayers) {
+KoVGameEngine.prototype.setupGame = function(inputPlayers) {
 
-	//inputPlayers.forEach(function(){
-
-	//});
-
-	players[0] = new Character("Rob");
-	players[1] = new Character("Teagan");
-	players[2] = new Character("Declan");
+	inputPlayers.forEach(function(element, value, array) {
+		players.push(new Character(element));
+	});
 
 	this.blackDice = new Dice(6);
 	this.greenDice = new Dice(2);
 
-	this.deck = new Deck();
+	// Game comes with 66 cards...will need to figure out how to import them.
+	this.deck = new Deck(66);
 	this.deck.shuffle();
 
 };

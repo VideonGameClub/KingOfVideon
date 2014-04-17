@@ -14,8 +14,13 @@ function inputCallback(err, data) {
 	}
 	switch(data) {
 		case 's':
-			cli.requestPlayerSetup();
-			gameEngine.setupGame();
+			cli.setupPlayers(function(err, data) {
+				if (err) {
+					console.log("Failed game setup");
+					return;
+				}
+				gameEngine.setupGame(data);
+			});
 			break;
 		case 'p':
 			gameEngine.printPlayerStats();
