@@ -1,14 +1,19 @@
+var Enum = require("enum");
 
-function Die(numberOfSides) {
+var dieEnum = new Enum({'ONE': 1, 'TWO': 2, 'THREE': 3, 'ENERGY': 4, 'ATTACK': 5, 'HEAL':6});
+var value;
+
+function Die() {
 	// Value of the role
-	this.value = -1;
+	this.value = dieEnum.ONE;
 	//Number of Sides
-	this.sides = numberOfSides;
+	this.sides = dieEnum.enums.length;
 }
 
 // class methods
 Die.prototype.roll = function() {
-	this.value = Math.floor((Math.random() * (this.sides - 1) + 1));
+	var roll = Math.floor((Math.random() * (this.sides - 1) + 1));
+	this.value = dieEnum.get(roll);
 	return this.value;
 };
 

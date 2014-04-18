@@ -23,6 +23,9 @@ function inputCallback(err, data) {
 				gameEngine.setupGame(data);
 			});
 			break;
+		case Command.type.START:
+			gameEngine.startGame();
+			break;
 		case Command.type.PRINT:
 			gameEngine.printPlayerStats();
 			break;

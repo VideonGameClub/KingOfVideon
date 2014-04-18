@@ -3,6 +3,9 @@ var Deck = require('./Deck');
 var Character = require('./Character');
 
 var players = [];
+var blackDice;
+var greenDice;
+var deck;
 
 function KoVGameEngine() { 
 }
@@ -23,7 +26,8 @@ KoVGameEngine.prototype.setupGame = function(inputPlayers) {
 };
 
 KoVGameEngine.prototype.startGame = function() {
-
+	this.blackDice.rollDice();
+	this.blackDice.printDice();
 };
 
 KoVGameEngine.prototype.printPlayerStats = function() {

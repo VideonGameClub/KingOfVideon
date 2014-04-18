@@ -5,7 +5,7 @@ var dice = [];
 function Dice(numberOfDice) {
 	//Init dice array
 	for(i=0; i < numberOfDice; i++) {
-		dice[i] = new Die(6);
+		dice[i] = new Die();
 	}
 }
 
