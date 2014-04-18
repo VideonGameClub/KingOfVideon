@@ -23,6 +23,8 @@ rl.on('line', function(line) {
 			callback(null, Command.type.START);
 			break;
 		case '?':
+		case 'h':
+		case 'help':
 			callback(null, Command.type.HELP);
 			break;
 		default:
@@ -35,6 +37,15 @@ rl.on('line', function(line) {
 	callback(null, 'q');
 });
 }
+
+CLI.prototype.printHelp = function() {
+	console.log('-- Here is your help you asked for --');
+	console.log('\tprint    - Print out player stats');
+	console.log('\tsetup    - Run Game setup');
+	console.log('\tstart    - Start the Game after setup is complete.');
+	console.log('\tq        - Quit the game and discard all data.');
+	console.log('\t?,h,help - Print this help.');
+};
 
 CLI.prototype.setupPlayers = function(callback) {
 	async.waterfall([ this.requestNumberOfPlayers,

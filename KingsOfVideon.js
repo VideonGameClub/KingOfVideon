@@ -27,7 +27,7 @@ function inputCallback(err, data) {
 			gameEngine.printPlayerStats();
 			break;
 		case Command.type.HELP:
-			console.log("print help");
+			cli.printHelp();
 			break;
 		case Command.type.QUIT:
 			console.log("shutting down");
