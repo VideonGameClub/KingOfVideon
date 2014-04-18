@@ -1,5 +1,6 @@
 var Dice = require('./Dice');
 var CLI = require('./CLI');
+var Command = require('./Command');
 var KoVGameEngine = require('./KoVGameEngine');
 
 console.log("Welcome to Kings of Videon!\n");
@@ -13,7 +14,7 @@ function inputCallback(err, data) {
 		console.log("We got an error");
 	}
 	switch(data) {
-		case 's':
+		case Command.type.SETUP:
 			cli.setupPlayers(function(err, data) {
 				if (err) {
 					console.log("Failed game setup");
@@ -22,13 +23,13 @@ function inputCallback(err, data) {
 				gameEngine.setupGame(data);
 			});
 			break;
-		case 'p':
+		case Command.type.PRINT:
 			gameEngine.printPlayerStats();
 			break;
-		case '?':
+		case Command.type.HELP:
 			console.log("print help");
 			break;
-		case 'q':
+		case Command.type.QUIT:
 			console.log("shutting down");
 			process.exit(0);
 			break;

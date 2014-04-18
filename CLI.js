@@ -1,5 +1,6 @@
 var readline = require('readline');
 var async = require('async');
+var Command = require('./Command');
 
 function CLI(callback) { 
 rl = readline.createInterface(process.stdin, process.stdout);
@@ -9,21 +10,24 @@ rl.prompt();
 
 rl.on('line', function(line) {
 	switch(line.trim()) {
-		case 'p':
-			callback(null, 'p');
+		case 'print':
+			callback(null, Command.type.PRINT);
 			break;
 		case 'q':
-			callback(null, 'q');
+			callback(null, Command.type.QUIT);
 			break;
-		case 's':
-			callback(null, 's');
+		case 'setup':
+			callback(null, Command.type.SETUP);
+			break;
+		case 'start':
+			callback(null, Command.type.START);
 			break;
 		case '?':
-			callback(null, '?');
+			callback(null, Command.type.HELP);
 			break;
 		default:
 			console.log('Say what? I might have heard `' + line.trim() + '`');
-			callback(null, 'default');
+			callback(null, Command.type.UNKNOWN);
 			break;
 	}
 	rl.prompt();
@@ -34,7 +38,7 @@ rl.on('line', function(line) {
 
 CLI.prototype.setupPlayers = function(callback) {
 	async.waterfall([ this.requestNumberOfPlayers,
-			  this.requestAllPlayerNames
+                          this.requestAllPlayerNames
 			], function(err, result){
 				if (err) return console.error(err);
 				callback(null, result);
