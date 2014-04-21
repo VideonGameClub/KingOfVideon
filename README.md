@@ -1,4 +1,4 @@
-KingsOfVideon
+KingOfVideon
 =============
 
-KingsOfVideonNodeJsRepo
+KingOfVideonNodeJsRepo
