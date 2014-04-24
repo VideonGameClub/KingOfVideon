@@ -3,7 +3,7 @@ var CLI = require('./CLI');
 var Command = require('./Command');
 var KoVGameEngine = require('./KoVGameEngine');
 
-console.log("Welcome to Kings of Videon!\n");
+console.log("Welcome to King of Videon!\n");
 
 console.log("Launch CLI, maybe someday have different interface.\n");
 var gameEngine = new KoVGameEngine();
