@@ -6,9 +6,11 @@ var players = [];
 var blackDice;
 var greenDice;
 var deck;
+var availableCards = [];
+var isSetup = false;
+var currentPlayer = 0;
 
-function KoVGameEngine() { 
-}
+function KoVGameEngine() { }
 
 KoVGameEngine.prototype.setupGame = function(inputPlayers) {
 
@@ -16,18 +18,35 @@ KoVGameEngine.prototype.setupGame = function(inputPlayers) {
 		players.push(new Character(element));
 	});
 
-	this.blackDice = new Dice(6);
-	this.greenDice = new Dice(2);
+	blackDice = new Dice(6);
+	greenDice = new Dice(2);
 
 	// Game comes with 66 cards...will need to figure out how to import them.
-	this.deck = new Deck(66);
-	this.deck.shuffle();
-
+	deck = new Deck(66);
+	isSetup = true;
 };
 
 KoVGameEngine.prototype.startGame = function() {
-	this.blackDice.rollDice();
-	this.blackDice.printDice();
+	// make sure we are setup.
+	if (!isSetup) {
+		console.log("please run setup");
+		return;
+	}
+
+	console.log("shuffling deck");
+	deck.shuffle();
+	console.log("Drawing cards for purchase");
+	availableCards.push(deck.draw());
+	availableCards.push(deck.draw());
+	availableCards.push(deck.draw());
+
+	//Pick who starts 
+	console.log("Randomly select player " + players[currentPlayer].getName() + " to go first");
+	return whoseTurn();
+};
+
+KoVGameEngine.prototype.whoseTurn = function() {
+	return players.currentPlayer[currentPlayer];
 };
 
 KoVGameEngine.prototype.printPlayerStats = function() {

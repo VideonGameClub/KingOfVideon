@@ -14,6 +14,11 @@ function Character(name) {
 }
 
 // class methods
+Character.prototype.getName = function() {
+	return this.name;
+};
+
+// class methods
 Character.prototype.incrementVP = function(val) {
 	this.victoryPoints = this.victoryPoints + val;
 	return this.victoryPoints;

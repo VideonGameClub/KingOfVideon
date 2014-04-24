@@ -1,6 +1,7 @@
 var Card = require("./Card");
 
 var deck = [];
+var discarded = [];
 
 function Deck(numberOfCards) {
 	//Init deck array
@@ -14,7 +15,11 @@ Deck.prototype.shuffle = function() {
 };
 
 Deck.prototype.draw = function() {
-	console.log("draw is not implemented");
+	return deck.shift();
+};
+
+Deck.prototype.discard = function(card) {
+	discarded.push(card);
 };
 
 

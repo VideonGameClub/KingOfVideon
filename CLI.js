@@ -59,7 +59,7 @@ CLI.prototype.setupPlayers = function(callback) {
 CLI.prototype.requestAllPlayerNames = function(numPlayers, callback) {
 	var list = [];
 	for (var i = 1; i <= numPlayers; i++) {
-		    list.push(i);
+		list.push(i);
 	}
 	async.mapSeries(list, CLI.prototype.requestPlayerName.bind(this), function(err,results) {
 		callback(err,results);
