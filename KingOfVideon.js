@@ -26,6 +26,9 @@ function inputCallback(err, data) {
 		case Command.type.START:
 			gameEngine.startGame();
 			break;
+		case Command.type.TURN:
+			console.log("It is " + gameEngine.whoseTurn().getName() + "'s turn");
+			break;
 		case Command.type.PRINT:
 			gameEngine.printPlayerStats();
 			break;

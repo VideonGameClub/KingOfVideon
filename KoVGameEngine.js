@@ -42,11 +42,11 @@ KoVGameEngine.prototype.startGame = function() {
 
 	//Pick who starts 
 	console.log("Randomly select player " + players[currentPlayer].getName() + " to go first");
-	return whoseTurn();
+	return this.whoseTurn();
 };
 
 KoVGameEngine.prototype.whoseTurn = function() {
-	return players.currentPlayer[currentPlayer];
+	return players[currentPlayer];
 };
 
 KoVGameEngine.prototype.printPlayerStats = function() {

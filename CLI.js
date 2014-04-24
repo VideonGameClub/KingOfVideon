@@ -22,6 +22,9 @@ rl.on('line', function(line) {
 		case 'start':
 			callback(null, Command.type.START);
 			break;
+		case 'turn':
+			callback(null, Command.type.TURN);
+			break;
 		case '?':
 		case 'h':
 		case 'help':
@@ -43,6 +46,7 @@ CLI.prototype.printHelp = function() {
 	console.log('\tprint    - Print out player stats');
 	console.log('\tsetup    - Run Game setup');
 	console.log('\tstart    - Start the Game after setup is complete.');
+	console.log('\tturn     - Check which player has the current turn.');
 	console.log('\tq        - Quit the game and discard all data.');
 	console.log('\t?,h,help - Print this help.');
 };
