@@ -25,6 +25,9 @@ rl.on('line', function(line) {
 		case 'turn':
 			callback(null, Command.type.TURN);
 			break;
+		case 'take':
+			callback(null, Command.type.TAKE_TURN);
+			break;
 		case '?':
 		case 'h':
 		case 'help':
